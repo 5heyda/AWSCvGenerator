@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+.env
+.venv/
+.python-version
+
+# OS files
+.DS_Store
+.vscode/
+
+# Cache
+.pytest_cache/
