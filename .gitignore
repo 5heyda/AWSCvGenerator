@@ -10,3 +10,10 @@ __pycache__/
 
 # Cache
 .pytest_cache/
+
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+tfplan 

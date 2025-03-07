@@ -1,4 +1,4 @@
-.PHONY: install run-dev docker-build docker-run docker-dev docker-stop docker-clean test deploy-ecr ecr-login ecr-create-repo ecr-push
+.PHONY: install run-dev docker-build docker-run docker-dev docker-stop docker-clean test deploy-ecr ecr-login ecr-create-repo ecr-push tf-init tf-plan tf-apply tf-destroy
 run-dev:
 	uv run src/app/app.py
 
@@ -43,6 +43,19 @@ ecr-push: ecr-login ecr-create-repo
 	docker tag $(ECR_REPOSITORY):$(IMAGE_TAG) $(shell aws sts get-caller-identity --query Account --output text).dkr.ecr.$(AWS_REGION).amazonaws.com/$(ECR_REPOSITORY):$(IMAGE_TAG)
 	docker push $(shell aws sts get-caller-identity --query Account --output text).dkr.ecr.$(AWS_REGION).amazonaws.com/$(ECR_REPOSITORY):$(IMAGE_TAG)
 
+# Terraform commands
+tf-init:
+	cd terraform && terraform init
+
+tf-plan:
+	cd terraform && terraform plan -out=tfplan
+
+tf-apply:
+	cd terraform && terraform apply tfplan
+
+tf-destroy:
+	cd terraform && terraform destroy -auto-approve
+
 # Help
 help:
 	@echo "=== FastAPI AWS Deployment ==="
@@ -61,3 +74,9 @@ help:
 	@echo ""
 	@echo "AWS Commands:"
 	@echo "  make deploy-ecr   - Build and push Docker image to ECR"
+	@echo ""
+	@echo "Terraform Commands:"
+	@echo "  make tf-init     - Initialize Terraform"
+	@echo "  make tf-plan     - Plan Terraform changes"
+	@echo "  make tf-apply    - Apply Terraform changes"
+	@echo "  make tf-destroy  - Destroy Terraform resources"
