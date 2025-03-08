@@ -38,4 +38,4 @@ jobs:
     
     - name: Build and Push to ECR
       run: python src/publish_ecr.py
-      working-directory: ./AWSCvGenerator 
+      working-directory: .  
