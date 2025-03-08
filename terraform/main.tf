@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "eu-north-1"
+  region = var.aws_region
 }
 
 # ECR Repository
 resource "aws_ecr_repository" "app" {
-  name                 = "awscvgenerator"
+  name                 = var.ecr_repository_name
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
@@ -19,7 +19,7 @@ resource "aws_ecr_lifecycle_policy" "app" {
   policy = jsonencode({
     rules = [{
       rulePriority = 1
-      description  = "Keep last 30 images"
+      description  = "Keep last 10 images"
       selection = {
         tagStatus     = "any"
         countType     = "imageCountMoreThan"
@@ -58,7 +58,7 @@ resource "aws_iam_role" "github_actions" {
         }
         Condition = {
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:5heyda/AWSCvGenerator:*"
+            "token.actions.githubusercontent.com:sub" = "repo:${var.github_repository}:*"
           }
         }
       }

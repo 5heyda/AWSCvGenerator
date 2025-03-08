@@ -5,12 +5,10 @@ from pathlib import Path
 from datetime import datetime
 from botocore.exceptions import ClientError
 
-# Get the project root directory (one level up from the script location)
 PROJECT_ROOT = Path(__file__).parent.parent
 
-# Use the same values as defined in your Terraform
-AWS_REGION = "eu-central-1"
-ECR_REPO_NAME = "awsportfolio"
+AWS_REGION = "eu-north-1" 
+ECR_REPO_NAME = "awscvgenerator"
 AWS_ACCOUNT_ID = boto3.client("sts").get_caller_identity()["Account"]
 ECR_URI = f"{AWS_ACCOUNT_ID}.dkr.ecr.{AWS_REGION}.amazonaws.com/{ECR_REPO_NAME}"
 
@@ -67,7 +65,7 @@ try:
 
     # Step 3: Build Docker Image
     print(f"Building Docker image version {VERSION}...")
-    run_command(f"docker build -t {ECR_REPO_NAME}:{VERSION} .", cwd=PROJECT_ROOT)
+    run_command(f"docker build -t {ECR_REPO_NAME}:{VERSION} -f src/app/Dockerfile .", cwd=PROJECT_ROOT)
 
     # Step 4: Tag the Images (both version-specific and latest)
     print("Tagging Docker images...")

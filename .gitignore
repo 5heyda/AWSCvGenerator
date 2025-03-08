@@ -16,4 +16,10 @@ __pycache__/
 *.tfstate
 *.tfstate.*
 .terraform.lock.hcl
-tfplan 
+tfplan
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json 
