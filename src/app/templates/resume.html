@@ -9,192 +9,342 @@
 </head>
 <body>
     <div class="page-container">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="hero-content">
-                <h1>Sheyda Messali</h1>
-                <p class="subtitle">Building AI systems to improve Data Platforms</p>
-                <div class="social-links">
-                    <a href="https://github.com/5heyda" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/sheyda-iraninasab/" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:sheyda.messali@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+        <!-- View Toggle -->
+        <div class="view-toggle-container">
+            <div class="view-toggle">
+                <input type="checkbox" id="view-switch" class="view-switch">
+                <label for="view-switch" class="toggle-label">
+                    <span class="toggle-option html-option">HTML</span>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-option md-option">Markdown</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- HTML Resume View -->
+        <div id="html-view">
+            <!-- Header Section -->
+            <div class="header">
+                <div class="hero-content">
+                    <h1>Sheyda Messali</h1>
+                    <p class="subtitle">Building AI systems to improve Data Platforms</p>
+                    <div class="social-links">
+                        <a href="https://github.com/5heyda" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sheyda-iraninasab/" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:sheyda.messali@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two-column Layout -->
+            <div class="content-container">
+                <!-- Left Sidebar -->
+                <div class="sidebar">
+                    <!-- Skills Section -->
+                    <div class="section">
+                        <h2>Key Skills</h2>
+                        <div class="skills">
+                            <div class="skill"><i class="fab fa-aws"></i> AWS Cloud</div>
+                            <div class="skill"><i class="fas fa-cubes"></i> Terraform</div>
+                            <div class="skill"><i class="fab fa-docker"></i> Docker</div>
+                            <div class="skill"><i class="fab fa-github"></i> Github</div>
+                            <div class="skill"><i class="fab fa-python"></i> Python</div>
+                            <div class="skill"><i class="fas fa-fire"></i> PySpark</div>
+                            <div class="skill"><i class="fas fa-database"></i> SQL</div>
+                        </div>
+                        
+                        <h2>Portfolio</h2>
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">Crypto Robot on AWS</div>
+                            <p>Real-time price prediction system with scalable data ingestion and AI-driven predictions.</p>
+                            <a href="https://github.com/5heyda/AWSDeploy" class="github-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">AWS Cost Optimization Tool</div>
+                            <p>Automated evaluator for performance and cost reduction on AWS.</p>
+                            <a href="https://github.com/5heyda/AWSCostOptimizer" class="github-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">Web App Deployment</div>
+                            <p>Best practices for scalable web applications on AWS.</p>
+                            <a href="https://github.com/5heyda/AWSDeploy" class="github-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">Batch Analytics Platform</div>
+                            <p>Robust, scalable batch analytics system with automated error monitoring.</p>
+                            <a href="https://github.com/5heyda/BatchAnalytics" class="github-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="main-content">
+                    <div class="section">
+                        <h2>Experience</h2>
+                        
+                        <div class="timeline">
+                            <div class="job">
+                                <div class="job-header">
+                                    <div class="job-title-container">
+                                        <div class="job-title">Data Engineer</div>
+                                        <div class="job-company">Sedona Group, Geneva</div>
+                                    </div>
+                                    <div class="job-date">
+                                        <span class="date-badge">Current</span>
+                                        <div>Since July 2024</div>
+                                    </div>
+                                </div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Design data pipelines using <strong>PySpark</strong> and <strong>Python</strong> with automated quality checks.</li>
+                                        <li>Engineer Spark solutions for complex data formats, enabling seamless data exchange.</li>
+                                        <li>Perform code reviews and maintain technical documentation.</li>
+                                    </ul>
+                                    <div class="tech-stack">
+                                        <div class="tech-badge">Azure Synapse</div>
+                                        <div class="tech-badge">Blob Storage</div>
+                                        <div class="tech-badge">Azure DevOps</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job">
+                                <div class="job-header">
+                                    <div class="job-title-container">
+                                        <div class="job-title">Data Engineer</div>
+                                        <div class="job-company">Caisse de dépôt et placement du Québec, Montreal</div>
+                                    </div>
+                                    <div class="job-date">July 2023 - April 2024</div>
+                                </div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Deploy Python packages on <strong>Azure DevOps</strong>, <strong>AWS Airflow</strong>, <strong>ECS</strong>, and <strong>ECR</strong>.</li>
+                                        <li>Implement notification system using <strong>AWS SNS</strong> for data lineage updates.</li>
+                                        <li>Optimize <strong>Databricks</strong> pipelines with <strong>PySpark</strong> and <strong>Delta tables</strong>.</li>
+                                    </ul>
+                                    <div class="tech-stack">
+                                        <div class="tech-badge">AWS MWAA</div>
+                                        <div class="tech-badge">S3</div>
+                                        <div class="tech-badge">ECS/ECR</div>
+                                        <div class="tech-badge">Snowflake</div>
+                                        <div class="tech-badge">Databricks</div>
+                                        <div class="tech-badge">Streamlit</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job">
+                                <div class="job-header">
+                                    <div class="job-title-container">
+                                        <div class="job-title">Data Engineer</div>
+                                        <div class="job-company">Glady, Paris</div>
+                                    </div>
+                                    <div class="job-date">July 2019 - March 2023</div>
+                                </div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Architected scalable data platforms for business intelligence and analytics.</li>
+                                        <li>Implemented central data platform from scratch on AWS Cloud.</li>
+                                        <li>Built end-to-end pipelines for fraud detection, user segmentation, and recommendation systems.</li>
+                                    </ul>
+                                    <div class="tech-stack">
+                                        <div class="tech-badge">AWS Sagemaker</div>
+                                        <div class="tech-badge">Glue</div>
+                                        <div class="tech-badge">S3</div>
+                                        <div class="tech-badge">Redshift</div>
+                                        <div class="tech-badge">Lambda</div>
+                                        <div class="tech-badge">QuickSight</div>
+                                        <div class="tech-badge">dbt</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job">
+                                <div class="job-header">
+                                    <div class="job-title-container">
+                                        <div class="job-title">Data Scientist Consultant</div>
+                                        <div class="job-company">Deloitte, Paris</div>
+                                    </div>
+                                    <div class="job-date">Oct 2017 - Jan 2019</div>
+                                </div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Built ML pipelines for cross-sell recommendation tool at BNP Personal Finance.</li>
+                                        <li>Conducted technical workshops to empower business units with data-driven tools.</li>
+                                    </ul>
+                                    <div class="tech-stack">
+                                        <div class="tech-badge">Python</div>
+                                        <div class="tech-badge">SQL</div>
+                                        <div class="tech-badge">Git</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job">
+                                <div class="job-header">
+                                    <div class="job-title-container">
+                                        <div class="job-title">Data Consultant</div>
+                                        <div class="job-company">Capgemini, Grenoble</div>
+                                    </div>
+                                    <div class="job-date">Feb 2017 - Oct 2017</div>
+                                </div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Migrated legacy data structures to QlikView's ETL environment.</li>
+                                        <li>Led user acceptance testing and stakeholder alignment sessions.</li>
+                                    </ul>
+                                    <div class="tech-stack">
+                                        <div class="tech-badge">QlikView</div>
+                                        <div class="tech-badge">SQL</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Two-column Layout -->
-        <div class="content-container">
-            <!-- Left Sidebar -->
-            <div class="sidebar">
-                <!-- Skills Section -->
-                <div class="section">
-                    <h2>Key Skills</h2>
-                    <div class="skills">
-                        <div class="skill"><i class="fab fa-aws"></i> AWS Cloud</div>
-                        <div class="skill"><i class="fas fa-cubes"></i> Terraform</div>
-                        <div class="skill"><i class="fab fa-docker"></i> Docker</div>
-                        <div class="skill"><i class="fab fa-github"></i> Github</div>
-                        <div class="skill"><i class="fab fa-python"></i> Python</div>
-                        <div class="skill"><i class="fas fa-fire"></i> PySpark</div>
-                        <div class="skill"><i class="fas fa-database"></i> SQL</div>
-                    </div>
-                    
-                    <h2>Portfolio</h2>
-                    <div class="portfolio-item">
-                        <div class="portfolio-title">Crypto Robot on AWS</div>
-                        <p>Real-time price prediction system with scalable data ingestion and AI-driven predictions.</p>
-                        <a href="https://github.com/5heyda/AWSDeploy" class="github-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                    <div class="portfolio-item">
-                        <div class="portfolio-title">AWS Cost Optimization Tool</div>
-                        <p>Automated evaluator for performance and cost reduction on AWS.</p>
-                        <a href="https://github.com/5heyda/AWSCostOptimizer" class="github-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                    <div class="portfolio-item">
-                        <div class="portfolio-title">Web App Deployment</div>
-                        <p>Best practices for scalable web applications on AWS.</p>
-                        <a href="https://github.com/5heyda/AWSDeploy" class="github-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                    <div class="portfolio-item">
-                        <div class="portfolio-title">Batch Analytics Platform</div>
-                        <p>Robust, scalable batch analytics system with automated error monitoring.</p>
-                        <a href="https://github.com/5heyda/BatchAnalytics" class="github-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
+        <!-- Markdown Resume View -->
+        <div id="markdown-view" class="hidden">
+            <div class="markdown-container">
+                <h2>Markdown Resume for LLM</h2>
+                <p class="markdown-description">Copy this markdown to use with Claude or other LLMs to generate a similar resume:</p>
+                <div class="copy-button-container">
+                    <button id="copy-markdown" class="copy-button">
+                        <i class="fas fa-copy"></i> Copy Markdown
+                    </button>
                 </div>
-            </div>
+                <pre id="markdown-content" class="markdown-content">
+# Sheyda Messali
 
-            <!-- Main Content -->
-            <div class="main-content">
-                <div class="section">
-                    <h2>Experience</h2>
-                    
-                    <div class="timeline">
-                        <div class="job">
-                            <div class="job-header">
-                                <div class="job-title-container">
-                                    <div class="job-title">Data Engineer</div>
-                                    <div class="job-company">Sedona Group, Geneva</div>
-                                </div>
-                                <div class="job-date">
-                                    <span class="date-badge">Current</span>
-                                    <div>Since July 2024</div>
-                                </div>
-                            </div>
-                            <div class="job-description">
-                                <ul>
-                                    <li>Design data pipelines using <strong>PySpark</strong> and <strong>Python</strong> with automated quality checks.</li>
-                                    <li>Engineer Spark solutions for complex data formats, enabling seamless data exchange.</li>
-                                    <li>Perform code reviews and maintain technical documentation.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <div class="tech-badge">Azure Synapse</div>
-                                    <div class="tech-badge">Blob Storage</div>
-                                    <div class="tech-badge">Azure DevOps</div>
-                                </div>
-                            </div>
-                        </div>
+Building AI systems to improve Data Platforms
 
-                        <div class="job">
-                            <div class="job-header">
-                                <div class="job-title-container">
-                                    <div class="job-title">Data Engineer</div>
-                                    <div class="job-company">Caisse de dépôt et placement du Québec, Montreal</div>
-                                </div>
-                                <div class="job-date">July 2023 - April 2024</div>
-                            </div>
-                            <div class="job-description">
-                                <ul>
-                                    <li>Deploy Python packages on <strong>Azure DevOps</strong>, <strong>AWS Airflow</strong>, <strong>ECS</strong>, and <strong>ECR</strong>.</li>
-                                    <li>Implement notification system using <strong>AWS SNS</strong> for data lineage updates.</li>
-                                    <li>Optimize <strong>Databricks</strong> pipelines with <strong>PySpark</strong> and <strong>Delta tables</strong>.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <div class="tech-badge">AWS MWAA</div>
-                                    <div class="tech-badge">S3</div>
-                                    <div class="tech-badge">ECS/ECR</div>
-                                    <div class="tech-badge">Snowflake</div>
-                                    <div class="tech-badge">Databricks</div>
-                                    <div class="tech-badge">Streamlit</div>
-                                </div>
-                            </div>
-                        </div>
+## Contact
+- GitHub: [github.com/5heyda](https://github.com/5heyda)
+- LinkedIn: [linkedin.com/in/sheyda-iraninasab](https://linkedin.com/in/sheyda-iraninasab)
+- Email: sheyda.messali@gmail.com
 
-                        <div class="job">
-                            <div class="job-header">
-                                <div class="job-title-container">
-                                    <div class="job-title">Data Engineer</div>
-                                    <div class="job-company">Glady, Paris</div>
-                                </div>
-                                <div class="job-date">July 2019 - March 2023</div>
-                            </div>
-                            <div class="job-description">
-                                <ul>
-                                    <li>Architected scalable data platforms for business intelligence and analytics.</li>
-                                    <li>Implemented central data platform from scratch on AWS Cloud.</li>
-                                    <li>Built end-to-end pipelines for fraud detection, user segmentation, and recommendation systems.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <div class="tech-badge">AWS Sagemaker</div>
-                                    <div class="tech-badge">Glue</div>
-                                    <div class="tech-badge">S3</div>
-                                    <div class="tech-badge">Redshift</div>
-                                    <div class="tech-badge">Lambda</div>
-                                    <div class="tech-badge">QuickSight</div>
-                                    <div class="tech-badge">dbt</div>
-                                </div>
-                            </div>
-                        </div>
+## Key Skills
+- AWS Cloud
+- Terraform
+- Docker
+- Github
+- Python
+- PySpark
+- SQL
 
-                        <div class="job">
-                            <div class="job-header">
-                                <div class="job-title-container">
-                                    <div class="job-title">Data Scientist Consultant</div>
-                                    <div class="job-company">Deloitte, Paris</div>
-                                </div>
-                                <div class="job-date">Oct 2017 - Jan 2019</div>
-                            </div>
-                            <div class="job-description">
-                                <ul>
-                                    <li>Built ML pipelines for cross-sell recommendation tool at BNP Personal Finance.</li>
-                                    <li>Conducted technical workshops to empower business units with data-driven tools.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <div class="tech-badge">Python</div>
-                                    <div class="tech-badge">SQL</div>
-                                    <div class="tech-badge">Git</div>
-                                </div>
-                            </div>
-                        </div>
+## Portfolio
+### Crypto Robot on AWS
+Real-time price prediction system with scalable data ingestion and AI-driven predictions.
+[View on GitHub](https://github.com/5heyda/AWSDeploy)
 
-                        <div class="job">
-                            <div class="job-header">
-                                <div class="job-title-container">
-                                    <div class="job-title">Data Consultant</div>
-                                    <div class="job-company">Capgemini, Grenoble</div>
-                                </div>
-                                <div class="job-date">Feb 2017 - Oct 2017</div>
-                            </div>
-                            <div class="job-description">
-                                <ul>
-                                    <li>Migrated legacy data structures to QlikView's ETL environment.</li>
-                                    <li>Led user acceptance testing and stakeholder alignment sessions.</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <div class="tech-badge">QlikView</div>
-                                    <div class="tech-badge">SQL</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+### AWS Cost Optimization Tool
+Automated evaluator for performance and cost reduction on AWS.
+[View on GitHub](https://github.com/5heyda/AWSCostOptimizer)
+
+### Web App Deployment
+Best practices for scalable web applications on AWS.
+[View on GitHub](https://github.com/5heyda/AWSDeploy)
+
+### Batch Analytics Platform
+Robust, scalable batch analytics system with automated error monitoring.
+[View on GitHub](https://github.com/5heyda/BatchAnalytics)
+
+## Experience
+
+### Data Engineer
+**Sedona Group, Geneva** | Since July 2024
+
+- Design data pipelines using PySpark and Python with automated quality checks.
+- Engineer Spark solutions for complex data formats, enabling seamless data exchange.
+- Perform code reviews and maintain technical documentation.
+
+**Tech:** Azure Synapse, Blob Storage, Azure DevOps
+
+### Data Engineer
+**Caisse de dépôt et placement du Québec, Montreal** | July 2023 - April 2024
+
+- Deploy Python packages on Azure DevOps, AWS Airflow, ECS, and ECR.
+- Implement notification system using AWS SNS for data lineage updates.
+- Optimize Databricks pipelines with PySpark and Delta tables.
+
+**Tech:** AWS MWAA, S3, ECS/ECR, Snowflake, Databricks, Streamlit
+
+### Data Engineer
+**Glady, Paris** | July 2019 - March 2023
+
+- Architected scalable data platforms for business intelligence and analytics.
+- Implemented central data platform from scratch on AWS Cloud.
+- Built end-to-end pipelines for fraud detection, user segmentation, and recommendation systems.
+
+**Tech:** AWS Sagemaker, Glue, S3, Redshift, Lambda, QuickSight, dbt
+
+### Data Scientist Consultant
+**Deloitte, Paris** | Oct 2017 - Jan 2019
+
+- Built ML pipelines for cross-sell recommendation tool at BNP Personal Finance.
+- Conducted technical workshops to empower business units with data-driven tools.
+
+**Tech:** Python, SQL, Git
+
+### Data Consultant
+**Capgemini, Grenoble** | Feb 2017 - Oct 2017
+
+- Migrated legacy data structures to QlikView's ETL environment.
+- Led user acceptance testing and stakeholder alignment sessions.
+
+**Tech:** QlikView, SQL
+                </pre>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewSwitch = document.getElementById('view-switch');
+            const htmlView = document.getElementById('html-view');
+            const markdownView = document.getElementById('markdown-view');
+            const copyButton = document.getElementById('copy-markdown');
+            
+            // Toggle between HTML and Markdown views
+            viewSwitch.addEventListener('change', function() {
+                if (this.checked) {
+                    htmlView.classList.add('hidden');
+                    markdownView.classList.remove('hidden');
+                } else {
+                    htmlView.classList.remove('hidden');
+                    markdownView.classList.add('hidden');
+                }
+            });
+            
+            // Copy markdown to clipboard
+            copyButton.addEventListener('click', function() {
+                const markdownContent = document.getElementById('markdown-content');
+                const range = document.createRange();
+                range.selectNode(markdownContent);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                
+                try {
+                    document.execCommand('copy');
+                    copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy Markdown';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+                
+                window.getSelection().removeAllRanges();
+            });
+        });
+    </script>
 </body>
 </html> 
