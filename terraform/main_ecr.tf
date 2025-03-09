@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
-
 # ECR Repository
 resource "aws_ecr_repository" "app" {
   name                 = var.ecr_repository_name
@@ -21,9 +17,9 @@ resource "aws_ecr_lifecycle_policy" "app" {
       rulePriority = 1
       description  = "Keep last 10 images"
       selection = {
-        tagStatus     = "any"
-        countType     = "imageCountMoreThan"
-        countNumber   = 30
+        tagStatus   = "any"
+        countType   = "imageCountMoreThan"
+        countNumber = 30
       }
       action = {
         type = "expire"
@@ -39,7 +35,7 @@ resource "aws_iam_openid_connect_provider" "github" {
   client_id_list = ["sts.amazonaws.com"]
 
   thumbprint_list = [
-    "6938fd4d98bab03faadb97b34396831e3780aea1"  # GitHub's OIDC thumbprint
+    "6938fd4d98bab03faadb97b34396831e3780aea1" # GitHub's OIDC thumbprint
   ]
 }
 
