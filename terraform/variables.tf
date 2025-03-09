@@ -8,6 +8,7 @@ variable "aws_region" {
   description = "AWS region"
   type        = string
   default     = "eu-north-1"
+
 }
 
 variable "vpc_cidr" {
@@ -50,11 +51,19 @@ variable "asg_max_size" {
   description = "Maximum number of instances in ASG"
   type        = number
   default     = 4
+
 }
 
 variable "ecr_repository_name" {
   description = "Name of the ECR repository"
   type        = string
+
+
+variable "asg_max_size" {
+  description = "Maximum number of instances in ASG"
+  type        = number
+  default     = 4
+
 }
 
 variable "github_repository" {

@@ -1,0 +1,630 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    line-height: 1.4;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.header, .content-container, .section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.header {
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.content-container {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    align-items: stretch;
+}
+
+.sidebar, .main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content .section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.3rem;
+    margin: 0 0 1rem 0;
+}
+
+h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 0 0 0.2rem 0;
+}
+
+.description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin: 0 0 0.8rem 0;
+}
+
+.section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.job {
+    margin-bottom: 1.2rem;
+}
+
+.job:last-child {
+    margin-bottom: 0;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.2rem;
+}
+
+.job-title {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.job-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.job-company {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+.job-description ul {
+    margin: 0.3rem 0;
+    padding-left: 1.2rem;
+}
+
+.job-description li {
+    margin-bottom: 0.3rem;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.tech-stack {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.3rem;
+}
+
+.portfolio-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:last-child {
+    margin-bottom: 0;
+}
+
+.portfolio-item p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-title {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0;
+}
+
+.skill {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.skill:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        max-width: 100%;
+    }
+}
+
+.header-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+i {
+    margin-right: 0.2rem;
+}
+
+.portfolio-title i, .job-title i, h2 i {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.hero-content {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0.5rem 0 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    color: white;
+}
+
+.social-link i {
+    margin: 0;
+}
+
+.aws-badge {
+    margin: 0 auto 1rem;
+    display: inline-flex;
+}
+
+.single-column {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-top: 0.6rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.github-link i {
+    margin-right: 0.4rem;
+}
+
+/* Make section headers more prominent */
+.main-content h2 {
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        max-width: 100%;
+    }
+    
+    .portfolio-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* Adjust spacing between portfolio and skills sections */
+.sidebar h2 + h2 {
+    margin-top: 1.5rem;
+}
+
+/* Add these styles to adjust the sidebar width */
+.sidebar {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+}
+
+.main-content {
+    flex: 2;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 900px) {
+    .sidebar {
+        max-width: 100%;
+    }
+}
+
+/* Refined timeline styling without circles */
+.timeline {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    opacity: 0.5;
+}
+
+.job {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+}
+
+.job:last-child {
+    margin-bottom: 0;
+}
+
+/* Remove the circle before each job */
+.job::before {
+    display: none;
+}
+
+/* Remove the horizontal line marker */
+.job::after {
+    display: none;
+}
+
+/* Enhance job headers */
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.job-title-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-title {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.job-company {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.job-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    text-align: right;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.date-badge {
+    background: rgba(102, 126, 234, 0.6);
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.job-description ul {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+}
+
+.job-description li {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.tech-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .job-header {
+        flex-direction: column;
+    }
+    
+    .job-date {
+        text-align: left;
+        margin-top: 0.3rem;
+        align-items: flex-start;
+    }
+}
+
+/* View Toggle Styles */
+.view-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.view-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-switch {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 180px;
+    position: relative;
+}
+
+.toggle-option {
+    z-index: 1;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 100%;
+    border-radius: 2rem;
+    background: rgba(102, 126, 234, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.view-switch:checked + .toggle-label .toggle-slider {
+    transform: translateX(90px);
+}
+
+/* Markdown View Styles */
+.hidden {
+    display: none;
+}
+
+.markdown-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.markdown-description {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.copy-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.copy-button {
+    background: rgba(102, 126, 234, 0.6);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copy-button:hover {
+    background: rgba(102, 126, 234, 0.8);
+    transform: translateY(-2px);
+}
+
+.markdown-content {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    max-height: 600px;
+    overflow-y: auto;
+} 
