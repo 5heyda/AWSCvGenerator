@@ -387,4 +387,133 @@ i {
     .sidebar {
         max-width: 100%;
     }
+}
+
+/* Refined timeline styling without circles */
+.timeline {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    opacity: 0.5;
+}
+
+.job {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+}
+
+.job:last-child {
+    margin-bottom: 0;
+}
+
+/* Remove the circle before each job */
+.job::before {
+    display: none;
+}
+
+/* Remove the horizontal line marker */
+.job::after {
+    display: none;
+}
+
+/* Enhance job headers */
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.job-title-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-title {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.job-company {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.job-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    text-align: right;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.date-badge {
+    background: rgba(102, 126, 234, 0.6);
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.job-description ul {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+}
+
+.job-description li {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.tech-badge {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+}
+
+.tech-badge:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .job-header {
+        flex-direction: column;
+    }
+    
+    .job-date {
+        text-align: left;
+        margin-top: 0.3rem;
+        align-items: flex-start;
+    }
 } 
