@@ -12,5 +12,5 @@ This is a simple FastAPI application that generates a markdown CV in PDF format.
 
 ## TODO
 
-
+- Deploy to AWS EC2
 

@@ -1,6 +1,0 @@
-.env
-.DS_Store
-.vscode/
-.venv/
-.terraform/
-.terraform.lock.hcl

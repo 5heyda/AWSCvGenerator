@@ -4,12 +4,21 @@ import subprocess
 from pathlib import Path
 from datetime import datetime
 from botocore.exceptions import ClientError
+from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).parent.parent
+load_dotenv(PROJECT_ROOT / '.env')
 
-AWS_REGION = "eu-north-1" 
-ECR_REPO_NAME = "awscvgenerator"
-AWS_ACCOUNT_ID = boto3.client("sts").get_caller_identity()["Account"]
+# Get environment variables with defaults
+AWS_REGION = os.getenv('AWS_REGION')
+ECR_REPO_NAME = os.getenv('ECR_REPO_NAME')
+AWS_ACCOUNT_ID = os.getenv('AWS_ACCOUNT_ID')
+
+# Validate required environment variables
+if not AWS_ACCOUNT_ID:
+    raise Exception("AWS_ACCOUNT_ID is required in .env file")
+
+# Construct ECR URI
 ECR_URI = f"{AWS_ACCOUNT_ID}.dkr.ecr.{AWS_REGION}.amazonaws.com/{ECR_REPO_NAME}"
 
 def run_command(command, cwd=None, capture_output=False):
@@ -65,7 +74,16 @@ try:
 
     # Step 3: Build Docker Image
     print(f"Building Docker image version {VERSION}...")
-    run_command(f"docker build -t {ECR_REPO_NAME}:{VERSION} -f src/app/Dockerfile .", cwd=PROJECT_ROOT)
+    # Pass environment variables to docker build
+    build_command = (
+        f"docker build"
+        f" --build-arg AWS_REGION={AWS_REGION}"
+        f" --build-arg ECR_REPO_NAME={ECR_REPO_NAME}"
+        f" --build-arg APP_PORT={os.getenv('APP_PORT', '80')}"
+        f" -t {ECR_REPO_NAME}:{VERSION}"
+        f" -f src/app/Dockerfile ."
+    )
+    run_command(build_command, cwd=PROJECT_ROOT)
 
     # Step 4: Tag the Images (both version-specific and latest)
     print("Tagging Docker images...")
