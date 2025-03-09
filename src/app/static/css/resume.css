@@ -1,0 +1,390 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    line-height: 1.4;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.header, .content-container, .section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.header {
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.content-container {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    align-items: stretch;
+}
+
+.sidebar, .main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content .section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.3rem;
+    margin: 0 0 1rem 0;
+}
+
+h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 0 0 0.2rem 0;
+}
+
+.description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin: 0 0 0.8rem 0;
+}
+
+.section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.job {
+    margin-bottom: 1.2rem;
+}
+
+.job:last-child {
+    margin-bottom: 0;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.2rem;
+}
+
+.job-title {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.job-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.job-company {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+.job-description ul {
+    margin: 0.3rem 0;
+    padding-left: 1.2rem;
+}
+
+.job-description li {
+    margin-bottom: 0.3rem;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.tech-stack {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.3rem;
+}
+
+.portfolio-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:last-child {
+    margin-bottom: 0;
+}
+
+.portfolio-item p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-title {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0;
+}
+
+.skill {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.skill:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        max-width: 100%;
+    }
+}
+
+.header-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+i {
+    margin-right: 0.2rem;
+}
+
+.portfolio-title i, .job-title i, h2 i {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.hero-content {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0.5rem 0 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    color: white;
+}
+
+.social-link i {
+    margin: 0;
+}
+
+.aws-badge {
+    margin: 0 auto 1rem;
+    display: inline-flex;
+}
+
+.single-column {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-top: 0.6rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.github-link i {
+    margin-right: 0.4rem;
+}
+
+/* Make section headers more prominent */
+.main-content h2 {
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        max-width: 100%;
+    }
+    
+    .portfolio-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* Adjust spacing between portfolio and skills sections */
+.sidebar h2 + h2 {
+    margin-top: 1.5rem;
+}
+
+/* Add these styles to adjust the sidebar width */
+.sidebar {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+}
+
+.main-content {
+    flex: 2;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 900px) {
+    .sidebar {
+        max-width: 100%;
+    }
+} 
