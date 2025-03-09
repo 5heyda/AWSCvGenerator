@@ -1,0 +1,197 @@
+/* Resume Builder Styles */
+.builder-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.instructions-panel, .input-panel {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.instructions-panel ol {
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.instructions-panel li {
+    margin-bottom: 0.8rem;
+}
+
+.sample-markdown {
+    margin-top: 1.5rem;
+}
+
+.sample-markdown h3 {
+    margin-bottom: 0.5rem;
+}
+
+.markdown-sample {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 0.5rem;
+}
+
+.textarea-container {
+    margin: 1rem 0;
+}
+
+#markdown-input {
+    width: 100%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+#markdown-input:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.primary-button, .secondary-button {
+    border: none;
+    border-radius: 2rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.primary-button {
+    background: rgba(102, 126, 234, 0.8);
+    color: white;
+}
+
+.primary-button:hover {
+    background: rgba(102, 126, 234, 1);
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.secondary-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+#loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ff6b6b;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 0.5rem;
+}
+
+#resume-preview {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.preview-container {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    height: 800px;
+}
+
+#resume-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .builder-container {
+        flex-direction: column;
+    }
+} 

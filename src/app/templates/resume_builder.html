@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/resume.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/resume_builder.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="header">
+            <div class="hero-content">
+                <h1>AI Resume Builder</h1>
+                <p class="subtitle">Create a professional resume using AI</p>
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/resume" class="nav-link">View Sample Resume</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="builder-container">
+            <div class="instructions-panel">
+                <h2>How It Works</h2>
+                <ol>
+                    <li>Paste your resume content in markdown format</li>
+                    <li>Click "Generate Resume" to create your professional resume</li>
+                    <li>View and download your new resume</li>
+                </ol>
+                <div class="sample-markdown">
+                    <h3>Sample Format</h3>
+                    <button id="copy-sample" class="copy-button">
+                        <i class="fas fa-copy"></i> Copy Sample
+                    </button>
+                    <pre class="markdown-sample">
+# Your Name
+
+Your professional tagline
+
+## Contact
+- GitHub: [github.com/username](https://github.com/username)
+- LinkedIn: [linkedin.com/in/username](https://linkedin.com/in/username)
+- Email: your.email@example.com
+
+## Key Skills
+- Skill 1
+- Skill 2
+- Skill 3
+- Skill 4
+- Skill 5
+
+## Portfolio
+### Project 1
+Description of project 1
+[View on GitHub](https://github.com/username/project1)
+
+### Project 2
+Description of project 2
+[View on GitHub](https://github.com/username/project2)
+
+## Experience
+
+### Job Title
+**Company Name, Location** | Start Date - End Date
+
+- Accomplishment 1
+- Accomplishment 2
+- Accomplishment 3
+
+**Tech:** Technology 1, Technology 2, Technology 3
+                    </pre>
+                </div>
+            </div>
+
+            <div class="input-panel">
+                <h2>Enter Your Resume Content</h2>
+                <div class="textarea-container">
+                    <textarea id="markdown-input" placeholder="Paste your markdown resume content here..."></textarea>
+                </div>
+                <div class="button-container">
+                    <button id="generate-resume" class="primary-button">
+                        <i class="fas fa-magic"></i> Generate Resume
+                    </button>
+                </div>
+                <div id="loading-indicator" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Generating your resume...</p>
+                </div>
+                <div id="error-message" class="hidden">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>There was an error generating your resume. Please try again.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="resume-preview" class="hidden">
+            <h2>Your Generated Resume</h2>
+            <div class="preview-actions">
+                <button id="edit-resume" class="secondary-button">
+                    <i class="fas fa-edit"></i> Edit Resume
+                </button>
+                <button id="download-resume" class="primary-button">
+                    <i class="fas fa-download"></i> Download HTML
+                </button>
+                <button id="download-pdf" class="primary-button">
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </button>
+            </div>
+            <div class="preview-container">
+                <iframe id="resume-iframe" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copySampleBtn = document.getElementById('copy-sample');
+            const markdownSample = document.querySelector('.markdown-sample');
+            const markdownInput = document.getElementById('markdown-input');
+            const generateBtn = document.getElementById('generate-resume');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const errorMessage = document.getElementById('error-message');
+            const resumePreview = document.getElementById('resume-preview');
+            const resumeIframe = document.getElementById('resume-iframe');
+            const editResumeBtn = document.getElementById('edit-resume');
+            const downloadResumeBtn = document.getElementById('download-resume');
+            const downloadPdfBtn = document.getElementById('download-pdf');
+            
+            // Copy sample markdown
+            copySampleBtn.addEventListener('click', function() {
+                const range = document.createRange();
+                range.selectNode(markdownSample);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                
+                try {
+                    document.execCommand('copy');
+                    copySampleBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    setTimeout(() => {
+                        copySampleBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Sample';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+                
+                window.getSelection().removeAllRanges();
+            });
+            
+            // Generate resume
+            generateBtn.addEventListener('click', function() {
+                const markdownContent = markdownInput.value.trim();
+                
+                if (!markdownContent) {
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.querySelector('p').textContent = 'Please enter your resume content.';
+                    return;
+                }
+                
+                // Show loading indicator
+                loadingIndicator.classList.remove('hidden');
+                errorMessage.classList.add('hidden');
+                
+                // Call API to generate resume
+                fetch('/api/generate-resume', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ markdown: markdownContent }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(err => {
+                            throw new Error(`Server error: ${err.detail || response.statusText}`);
+                        }).catch(e => {
+                            throw new Error(`Failed to generate resume: ${response.status} ${response.statusText}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Hide loading indicator
+                    loadingIndicator.classList.add('hidden');
+                    
+                    // Show preview
+                    resumePreview.classList.remove('hidden');
+                    
+                    // Set iframe content
+                    const iframeDoc = resumeIframe.contentDocument || resumeIframe.contentWindow.document;
+                    iframeDoc.open();
+                    iframeDoc.write(data.html);
+                    iframeDoc.close();
+                    
+                    // Scroll to preview
+                    resumePreview.scrollIntoView({ behavior: 'smooth' });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    loadingIndicator.classList.add('hidden');
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.querySelector('p').textContent = error.message || 'There was an error generating your resume. Please try again.';
+                });
+            });
+            
+            // Edit resume button
+            editResumeBtn.addEventListener('click', function() {
+                resumePreview.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Download resume button
+            downloadResumeBtn.addEventListener('click', function() {
+                const iframeDoc = resumeIframe.contentDocument || resumeIframe.contentWindow.document;
+                const htmlContent = iframeDoc.documentElement.outerHTML;
+                
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'my-resume.html';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+            
+            // Download PDF button
+            downloadPdfBtn.addEventListener('click', function() {
+                const iframeDoc = resumeIframe.contentDocument || resumeIframe.contentWindow.document;
+                const htmlContent = iframeDoc.documentElement.outerHTML;
+                
+                // Show loading state
+                downloadPdfBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+                downloadPdfBtn.disabled = true;
+                
+                // Send HTML to server for PDF conversion
+                fetch('/api/generate-pdf', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ html: htmlContent }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to generate PDF');
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    // Create download link
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'my-resume.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    // Reset button
+                    downloadPdfBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download PDF';
+                    downloadPdfBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    downloadPdfBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download PDF';
+                    downloadPdfBtn.disabled = false;
+                    alert('Failed to generate PDF. Please try again.');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

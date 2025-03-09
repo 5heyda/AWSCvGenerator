@@ -3,56 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheyda's Portfolio</title>
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/resume.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        .home-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .features {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
         }
-        .container {
-            text-align: center;
-            padding: 2rem;
+        
+        .feature-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
+            padding: 1.5rem;
+            width: 300px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: transform 0.3s ease;
         }
-        h1 {
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-        p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
         }
-        .resume-link {
-            display: inline-block;
-            margin-top: 1.5rem;
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(102, 126, 234, 0.8);
             color: white;
             text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
             border-radius: 2rem;
-            font-size: 1.1rem;
+            font-weight: bold;
             transition: all 0.3s ease;
         }
-        .resume-link:hover {
+        
+        .cta-button:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-5px);
+        }
+        
+        .secondary-button {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .secondary-button:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>👋 Hello!</h1>
-        <p>Welcome to docker-deployment-on-aws</p>
-        <a href="/resume" class="resume-link">View My Resume</a>
+    <div class="page-container">
+        <div class="header">
+            <div class="hero-content">
+                <h1>AI Resume Builder</h1>
+                <p class="subtitle">Create a professional resume in minutes with AI</p>
+            </div>
+        </div>
+        
+        <div class="home-container">
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>AI-Powered</h3>
+                    <p>Our AI transforms your simple markdown content into a beautifully designed resume.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Professional Design</h3>
+                    <p>Get a modern, responsive resume that stands out to recruiters and hiring managers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick & Easy</h3>
+                    <p>Create your resume in minutes, not hours. Just paste your content and let AI do the rest.</p>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="/resume-builder" class="cta-button">
+                    <i class="fas fa-plus-circle"></i> Create Your Resume
+                </a>
+                <a href="/resume" class="cta-button secondary-button">
+                    <i class="fas fa-eye"></i> View Sample
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 </html> 

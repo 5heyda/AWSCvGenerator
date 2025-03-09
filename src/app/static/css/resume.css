@@ -522,6 +522,7 @@ i {
 .view-toggle-container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     margin-bottom: 1rem;
 }
 
@@ -627,4 +628,30 @@ i {
     color: rgba(255, 255, 255, 0.9);
     max-height: 600px;
     overflow-y: auto;
+}
+
+/* PDF Download Button */
+.download-pdf-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+}
+
+.download-pdf-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.view-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1rem;
 } 
