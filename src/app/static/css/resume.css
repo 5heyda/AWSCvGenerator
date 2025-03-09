@@ -492,17 +492,17 @@ i {
 }
 
 .tech-badge {
-    background: rgba(255, 255, 255, 0.08);
-    padding: 0.2rem 0.6rem;
-    border-radius: 0.3rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.9);
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .tech-badge:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 /* Responsive adjustments */
