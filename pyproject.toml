@@ -9,4 +9,8 @@ dependencies = [
     "jinja2>=3.1.6",
     "uvicorn>=0.34.0",
     "boto3>=1.35.0",
+    "markdown>=3.7",
+    "requests>=2.32.3",
+    "python-multipart>=0.0.20",
+    "aiofiles>=24.1.0",
 ]

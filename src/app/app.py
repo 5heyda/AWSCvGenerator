@@ -9,11 +9,21 @@ app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
+# Mount static files
+app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
+
 @app.get("/")
 async def root(request: Request):
     return templates.TemplateResponse(
         "index.html",
         {"request": request, "name": "Your Name"}
+    )
+
+@app.get("/resume")
+async def resume(request: Request, name: str = "AWS Cloud Engineer"):
+    return templates.TemplateResponse(
+        "resume.html",
+        {"request": request, "name": name}
     )
 
 @app.get("/{name}")

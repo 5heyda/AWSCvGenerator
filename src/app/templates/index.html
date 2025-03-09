@@ -31,12 +31,28 @@
             font-size: 1.2rem;
             opacity: 0.9;
         }
+        .resume-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .resume-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>👋 Hello!</h1>
         <p>Welcome to docker-deployment-on-aws</p>
+        <a href="/resume" class="resume-link">View My Resume</a>
     </div>
 </body>
 </html> 
